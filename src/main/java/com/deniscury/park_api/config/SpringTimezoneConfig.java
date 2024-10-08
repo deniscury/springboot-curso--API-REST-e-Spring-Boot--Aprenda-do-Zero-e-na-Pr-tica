@@ -1,4 +1,4 @@
-package com.deniscury.parkapi.config;
+package com.deniscury.park_api.config;
 
 import java.util.TimeZone;
 

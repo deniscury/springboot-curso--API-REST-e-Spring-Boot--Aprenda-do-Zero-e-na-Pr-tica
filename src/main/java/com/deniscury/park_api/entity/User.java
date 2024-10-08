@@ -1,4 +1,4 @@
-package com.deniscury.parkapi.entity;
+package com.deniscury.park_api.entity;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
