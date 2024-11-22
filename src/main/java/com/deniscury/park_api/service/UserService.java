@@ -2,6 +2,7 @@ package com.deniscury.park_api.service;
 
 import java.util.List;
 
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,10 +34,19 @@ public class UserService {
     }
 
     @Transactional
-    public User updatePassword(Long id, String password){
+    public User updatePassword(Long id, String currentPassword, String newPassword, String confirmPassword){
+
+        if (!newPassword.equals(confirmPassword)){
+            throw new RuntimeException("Nova senha não confere com a confirmação de senha.");
+        }
+
         User user = getById(id);
 
-        user.setPassword(password);
+        if (!user.getPassword().equals(currentPassword)){
+            throw new RuntimeException("Sua senha não confere.");
+        }
+
+        user.setPassword(newPassword);
 
         return user;
     }
